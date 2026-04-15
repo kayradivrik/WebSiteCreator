@@ -1,0 +1,1608 @@
+[
+  {
+    "_id": "7bb06592-d845-4a94-aefb-f062f54bdd1e",
+    "name": "Test",
+    "canvasState": {
+      "blocks": []
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T05:15:09.684Z",
+    "updatedAt": "2026-04-15T05:15:09.684Z"
+  },
+  {
+    "_id": "734fbdf6-7923-48a0-8762-bd5a6b742475",
+    "name": "My Custom Page",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed"
+              }
+            },
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md"
+                  },
+                  "children": [
+                    {
+                      "id": "8tbqv56gk",
+                      "type": "Heading",
+                      "props": {
+                        "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                        "text": "Heading",
+                        "level": "h2"
+                      },
+                      "children": []
+                    },
+                    {
+                      "id": "zswf72iga",
+                      "type": "Button",
+                      "props": {
+                        "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                        "text": "Click Me"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g1nnmzira",
+          "type": "Button",
+          "props": {
+            "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+            "text": "Click Me"
+          },
+          "children": []
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T05:17:16.102Z",
+    "updatedAt": "2026-04-15T05:17:16.102Z"
+  },
+  {
+    "_id": "d27d9e4c-1a7e-4760-9538-0c8258d67bb4",
+    "name": "My Custom Page",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl",
+                "level": "h3"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed"
+              }
+            },
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md"
+                  },
+                  "children": [
+                    {
+                      "id": "8tbqv56gk",
+                      "type": "Heading",
+                      "props": {
+                        "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                        "text": "Heading",
+                        "level": "h2"
+                      },
+                      "children": []
+                    },
+                    {
+                      "id": "zswf72iga",
+                      "type": "Button",
+                      "props": {
+                        "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                        "text": "Click Me"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g1nnmzira",
+          "type": "Button",
+          "props": {
+            "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+            "text": "Click Me"
+          },
+          "children": []
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T05:17:33.137Z",
+    "updatedAt": "2026-04-15T05:17:33.137Z"
+  },
+  {
+    "_id": "ab1af232-9081-420f-83c3-f3e37c1a5427",
+    "name": "My Custom Page",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "font-extrabold dark:text-white tracking-tight sm:text-7xl bg-white flex items-center gap-4 p-9 text-blue-600 rounded-xl",
+                "level": "h3"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed"
+              }
+            },
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md"
+                  },
+                  "children": [
+                    {
+                      "id": "8tbqv56gk",
+                      "type": "Heading",
+                      "props": {
+                        "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                        "text": "Heading",
+                        "level": "h2"
+                      },
+                      "children": []
+                    },
+                    {
+                      "id": "zswf72iga",
+                      "type": "Button",
+                      "props": {
+                        "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                        "text": "Click Me"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g1nnmzira",
+          "type": "Button",
+          "props": {
+            "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+            "text": "Click Me"
+          },
+          "children": []
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T05:17:53.551Z",
+    "updatedAt": "2026-04-15T05:17:53.551Z"
+  },
+  {
+    "_id": "f9aa8640-6217-43e8-930f-41c238571ba3",
+    "name": "Yeni sayfa24",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed m-9 absolute top-5 left-3"
+              }
+            },
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-red-500\n font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md text-gray-500 top-3\n- m-4"
+                  },
+                  "children": [
+                    {
+                      "id": "728b83407c3c",
+                      "type": "Button",
+                      "props": {
+                        "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                        "text": "Click Me",
+                        "href": "",
+                        "targetBlank": false
+                      },
+                      "children": []
+                    },
+                    {
+                      "id": "3fb5d44bdfe0",
+                      "type": "Button",
+                      "props": {
+                        "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                        "text": "Click Me",
+                        "href": "",
+                        "targetBlank": false
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "8ec023eda2b4",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5  font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md text-gray-500 - flex items-center gap-4 flex flex-col gap-4 p-7 left-32 top-4 m-14 bg-blue-600"
+                  },
+                  "children": [
+                    {
+                      "id": "9567498f0ba5",
+                      "type": "Button",
+                      "props": {
+                        "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                        "text": "Click Me",
+                        "href": "",
+                        "targetBlank": false
+                      },
+                      "children": []
+                    },
+                    {
+                      "id": "9923e6398401",
+                      "type": "Button",
+                      "props": {
+                        "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                        "text": "Click Me",
+                        "href": "",
+                        "targetBlank": false
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "87eb483376ee",
+              "type": "Button",
+              "props": {
+                "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700 relative top-6 rounded-xl m-10 bg-blue-600 text-blue-800\n\n",
+                "text": "Click Me",
+                "href": "",
+                "targetBlank": true
+              },
+              "children": []
+            },
+            {
+              "id": "31a58d20691b",
+              "type": "Image",
+              "props": {
+                "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                "src": "https://via.placeholder.com/150"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "60e7cb05bf4b",
+          "type": "Grid",
+          "props": {
+            "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700"
+          },
+          "children": []
+        },
+        {
+          "id": "1fea33485022",
+          "type": "Grid",
+          "props": {
+            "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700"
+          },
+          "children": []
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T06:39:47.551Z",
+    "updatedAt": "2026-04-15T07:15:27.714Z"
+  },
+  {
+    "_id": "a8200217-819c-4eb0-9cd0-9eb3c292f336",
+    "name": "Yeni sayfa",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed"
+              }
+            },
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl",
+                "level": "h1"
+              }
+            }
+          ]
+        },
+        {
+          "id": "2040a8d8d11d",
+          "type": "Link",
+          "props": {
+            "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+            "text": "Daha fazlası",
+            "href": "https://",
+            "targetBlank": true
+          },
+          "children": []
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T07:25:00.455Z",
+    "updatedAt": "2026-04-15T10:02:04.318Z"
+  },
+  {
+    "_id": "8ec4f4f6-5ae2-4ed9-8330-92b910661cfb",
+    "name": "Yeni sayfa",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl",
+                "level": "h3"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed"
+              }
+            },
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T10:17:36.499Z",
+    "updatedAt": "2026-04-15T10:17:36.499Z"
+  },
+  {
+    "_id": "62a16575-c36c-4e9f-ab12-682d35146956",
+    "name": "Yeni sayfa",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight bg-blue-600",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed"
+              }
+            },
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T10:29:44.586Z",
+    "updatedAt": "2026-04-15T10:29:48.223Z"
+  },
+  {
+    "_id": "a0f98be3-20cc-4918-a1da-f326234d285c",
+    "name": "Yeni sayfa",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed"
+              }
+            },
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T10:32:28.506Z",
+    "updatedAt": "2026-04-15T10:32:43.891Z"
+  },
+  {
+    "_id": "ec8f8860-8e31-4af7-9f9c-6e81a9be9cee",
+    "name": "Yeni sayfa",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed"
+              }
+            },
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md",
+                    "href": "asdasdsd"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T10:35:51.307Z",
+    "updatedAt": "2026-04-15T10:36:15.612Z"
+  },
+  {
+    "_id": "f4ad00e2-668f-432a-a2ea-5cde7d693397",
+    "name": "Yeni sayfa",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed"
+              }
+            },
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T10:36:55.321Z",
+    "updatedAt": "2026-04-15T10:36:55.321Z"
+  },
+  {
+    "_id": "acac163d-5e00-4e5a-a89c-53374093f6e2",
+    "name": "Yeni sayfa",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed"
+              }
+            },
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "cce561152632",
+              "type": "Button",
+              "props": {
+                "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                "text": "Click Me",
+                "href": "",
+                "targetBlank": false
+              },
+              "children": []
+            },
+            {
+              "id": "0bd0353172be",
+              "type": "Button",
+              "props": {
+                "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                "text": "Click Me",
+                "href": "",
+                "targetBlank": false
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "dfc165d2c784",
+          "type": "Container",
+          "props": {
+            "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700"
+          },
+          "children": []
+        },
+        {
+          "id": "c242084e7e8b",
+          "type": "Container",
+          "props": {
+            "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700"
+          },
+          "children": [
+            {
+              "id": "b74d9667a0a3",
+              "type": "Link",
+              "props": {
+                "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                "text": "Daha fazlası",
+                "href": "https://",
+                "targetBlank": true
+              },
+              "children": []
+            },
+            {
+              "id": "ceec7feb3898",
+              "type": "Text",
+              "props": {
+                "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+                "text": "New Text"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "895d918068f0",
+          "type": "Button",
+          "props": {
+            "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+            "text": "Click Me",
+            "href": "",
+            "targetBlank": false
+          },
+          "children": []
+        },
+        {
+          "id": "9de69e8896b0",
+          "type": "Image",
+          "props": {
+            "className": "p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700",
+            "src": "https://via.placeholder.com/150"
+          },
+          "children": []
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T10:37:54.710Z",
+    "updatedAt": "2026-04-15T10:37:54.710Z"
+  },
+  {
+    "_id": "dd44a268-e3d9-46e4-b1b0-c33809bc0004",
+    "name": "Yeni sayfa",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed"
+              }
+            },
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T10:40:48.899Z",
+    "updatedAt": "2026-04-15T10:40:53.385Z"
+  },
+  {
+    "_id": "1ecb981d-de61-4d02-9ea0-733fc548dc29",
+    "name": "Yeni sayfa",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed"
+              }
+            },
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T11:39:58.848Z",
+    "updatedAt": "2026-04-15T11:39:58.848Z"
+  },
+  {
+    "_id": "e0a28a6b-6f0b-47f7-a641-521fc1199c0e",
+    "name": "Yeni sayfa",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed"
+              }
+            },
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T11:45:03.281Z",
+    "updatedAt": "2026-04-15T11:45:03.281Z"
+  },
+  {
+    "_id": "88348a00-fe2d-49d9-9110-b6a28b2a921a",
+    "name": "Yeni sayfa",
+    "canvasState": {
+      "id": "root",
+      "type": "Section",
+      "props": {
+        "className": "w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8"
+      },
+      "children": [
+        {
+          "id": "navbar-1",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800"
+          },
+          "children": [
+            {
+              "id": "logo-text",
+              "type": "Heading",
+              "props": {
+                "text": "Startup.io",
+                "className": "text-2xl font-black text-gray-900 dark:text-white tracking-tight",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "nav-btn",
+              "type": "Button",
+              "props": {
+                "text": "Get Started",
+                "className": "px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hero-section",
+          "type": "Container",
+          "props": {
+            "className": "max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8"
+          },
+          "children": [
+            {
+              "id": "hero-title",
+              "type": "Heading",
+              "props": {
+                "text": "Build faster, scale smarter.",
+                "className": "text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl",
+                "level": "h1"
+              }
+            },
+            {
+              "id": "hero-subtitle",
+              "type": "Text",
+              "props": {
+                "text": "The ultimate tool for creators to build exceptional web experiences without writing a single line of code.",
+                "className": "max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed"
+              }
+            },
+            {
+              "id": "hero-actions",
+              "type": "Grid",
+              "props": {
+                "className": "flex gap-4 mt-4"
+              },
+              "children": [
+                {
+                  "id": "primary-btn",
+                  "type": "Button",
+                  "props": {
+                    "text": "Start for free",
+                    "className": "px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "settings": {
+      "favicon": "",
+      "customCSS": ""
+    },
+    "createdAt": "2026-04-15T11:45:14.249Z",
+    "updatedAt": "2026-04-15T11:45:14.249Z"
+  }
+]

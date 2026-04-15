@@ -1,0 +1,29 @@
+Web Builder — çalıştırma
+
+1) İlk kurulum (bir kez):
+   npm run setup
+
+2) Geliştirme (API 5000 + Vite; arayüzü Vite’nin yazdığı Local adresinde açın):
+   npm run dev
+
+   Not: Önce API portu açılır, sonra Vite başlar (wait-on).
+   Vite uzun süre beklemede kalırsa backend terminalinde Mongo / .env hatasına bakın.
+
+2b) Hızlı doğrulama (API kapalı olsa da derleme + lint):
+   npm run verify
+   MongoDB: backend\.env → USE_FILE_DB=false ve MONGO_URI doldurun.
+   Arayüz geliştirmede API’ye doğrudan http://127.0.0.1:5000 gider (CORS açık); Vite portu (5176 vb.) önemli değil.
+   Mongo yok / hızlı deneme: USE_FILE_DB=true → backend\data\pages.json
+
+   5000’de “Cannot GET /api/pages” veya GET / 404: portta bu projenin server.js’i değil başka bir node süreci olabilir.
+   PowerShell: netstat -ano | findstr ":5000" → LISTENING satırındaki PID’yi tasklist ile kontrol edin; gerekiyorsa
+   o PID’yi durdurup yeniden "npm run dev" çalıştırın. Doğru süreçte terminalde "Loaded: ...\backend\server.js" ve
+   health yanıtında X-Web-Builder-Api: 1 başlığı görünür.
+
+3) API sağlık: http://127.0.0.1:5000/api/health
+   (mongo.connected false ise bağlantı düşmüş veya henüz yok demektir)
+
+4) Ön yüz derlemesi:
+   npm run build
+
+5) .env dosyalarını Git’e eklemeyin (şifre içerir). Kök .gitignore .env yok sayar.
