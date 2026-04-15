@@ -202,7 +202,12 @@ function PropertiesPanel() {
 
         {activeTab === 'style' && (
           <div className="space-y-8">
-            
+            <p className="text-[10px] text-gray-400 leading-snug -mt-1">
+              Üst çubuktan mobil / tablet genişliği seçerek <code className="font-mono">sm:</code>,{' '}
+              <code className="font-mono">md:</code>, <code className="font-mono">lg:</code> gibi
+              responsive Tailwind sınıflarının etkisini görebilirsiniz.
+            </p>
+
             {/* Visual Styling Helpers */}
             <div className="space-y-5">
               
@@ -428,6 +433,13 @@ function PropertiesPanel() {
                 placeholder="Örn: mx-auto max-w-lg shadow-lg translate-x-2 z-10..."
                 spellCheck={false}
               />
+              <p className="text-[10px] text-gray-400 leading-snug">
+                Geliştirme modunda (npm run dev) Tailwind Play CDN açıktır — yazdığınız sınıf anında canvas’ta üretilir.
+                Üretim önizlemesinde (vite build / preview) sınıflar önceden derlenmiş CSS + safelist ile gelir; eksikse{' '}
+                <code className="font-mono">tailwind.config.js</code> safelist veya{' '}
+                <code className="font-mono">tailwindSafelistClasses.js</code> güncellenir. İsteğe bağlı:{' '}
+                <code className="font-mono">VITE_TAILWIND_PLAY_CDN=true</code> ile CDN’i prod build’de de açabilirsiniz.
+              </p>
             </div>
             
           </div>

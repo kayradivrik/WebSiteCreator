@@ -1,4 +1,9 @@
 import { sanitizeHref } from './url';
+import {
+  normalizePageSettings,
+  googleFontStylesheetHref,
+  themeToCssVarsStyle,
+} from './pageSettingsDefaults.js';
 
 const HEADING_TAGS = new Set(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']);
 
@@ -120,31 +125,74 @@ function safeInlineCss(css) {
   return css.replace(/<\//gi, '<\\/');
 }
 
+function themeVarsCssBlock(theme) {
+  const t = themeToCssVarsStyle(theme);
+  const lines = Object.entries(t).map(([k, v]) => `  ${k}: ${esc(v)};`);
+  return `:root {\n${lines.join('\n')}\n}`;
+}
+
 /**
- * Tek dosyada açılabilir HTML (Tailwind CDN).
+ * Tek dosya veya zip içi index.html.
  * @param {object} canvasState kök düğüm
- * @param {{ title?: string, customCSS?: string, favicon?: string }} meta
+ * @param {{
+ *   title?: string,
+ *   customCSS?: string,
+ *   favicon?: string,
+ *   googleFont?: string,
+ *   metaTitle?: string,
+ *   metaDescription?: string,
+ *   theme?: object,
+ *   bundleMode?: 'cdn' | 'local',
+ * }} meta
  */
 export function buildStandaloneHtml(canvasState, meta = {}) {
-  const title = meta.title || 'Sayfa';
+  const settings = normalizePageSettings(meta);
+  const titleBase = meta.title || 'Sayfa';
+  const docTitle =
+    settings.metaTitle && String(settings.metaTitle).trim()
+      ? String(settings.metaTitle).trim()
+      : titleBase;
   const inner = nodeToStaticHtml(canvasState);
-  const css = safeInlineCss(meta.customCSS || '');
-  const styleBlock = css ? `\n<style>\n${css}\n</style>` : '';
-  const fav = (meta.favicon || '').trim();
+  const css = safeInlineCss(settings.customCSS || '');
+  const userStyle = css ? `\n<style>\n${css}\n</style>` : '';
+  const themeStyle = `\n<style id="wb-theme">\n${themeVarsCssBlock(settings.theme)}\n</style>`;
+  const fav = (settings.favicon || '').trim();
   const favBlock =
-    fav && /^https?:\/\//i.test(fav)
-      ? `\n<link rel="icon" href="${esc(fav)}" />`
-      : '';
+    fav && /^https?:\/\//i.test(fav) ? `\n<link rel="icon" href="${esc(fav)}" />` : '';
+
+  const fontHref = googleFontStylesheetHref(settings.googleFont);
+  const fontBlock = fontHref ? `\n<link rel="stylesheet" href="${esc(fontHref)}" />` : '';
+
+  const bundleMode = meta.bundleMode === 'local' ? 'local' : 'cdn';
+  const tailwindBlock =
+    bundleMode === 'local'
+      ? `\n<link rel="stylesheet" href="./site-export.css" />`
+      : `\n<script src="https://cdn.tailwindcss.com"></script>`;
+
+  const fontFamily = settings.googleFont
+    ? `'${esc(settings.googleFont)}', system-ui, sans-serif`
+    : 'system-ui, sans-serif';
+
+  const bodyStyle = `background-color:${esc(settings.theme.surface)};color:${esc(settings.theme.text)};font-family:${fontFamily};`;
+
+  const desc = (settings.metaDescription || '').trim();
+  const headSeo = `\n${[
+    desc ? `<meta name="description" content="${esc(desc)}" />` : '',
+    `<meta property="og:title" content="${esc(docTitle)}" />`,
+    desc ? `<meta property="og:description" content="${esc(desc)}" />` : '',
+  ]
+    .filter(Boolean)
+    .join('\n')}`;
 
   return `<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>${esc(title)}</title>${favBlock}${styleBlock}
-<script src="https://cdn.tailwindcss.com"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />${headSeo}
+<title>${esc(docTitle)}</title>${favBlock}${fontBlock}${themeStyle}${userStyle}
+${tailwindBlock}
 </head>
-<body class="antialiased">
+<body class="antialiased" style="${bodyStyle}">
 ${inner}
 </body>
 </html>`;
@@ -177,8 +225,17 @@ export function triggerDownload(filename, blob) {
   URL.revokeObjectURL(url);
 }
 
-export function downloadCanvasHtml(canvasState, { title, customCSS = '', favicon = '' } = {}) {
-  const html = buildStandaloneHtml(canvasState, { title, customCSS, favicon });
+/**
+ * Tek HTML — varsayılan olarak Tailwind CDN (tek dosya, her yerde açılır).
+ * İstersen meta.bundleMode = 'local' + yanında site-export.css kullanılır.
+ */
+export function downloadCanvasHtml(canvasState, opts = {}) {
+  const { title = 'sayfa', bundleMode = 'cdn', ...rest } = opts;
+  const html = buildStandaloneHtml(canvasState, {
+    title,
+    ...rest,
+    bundleMode,
+  });
   const name = `${slugifyFileBase(title)}.html`;
   triggerDownload(name, new Blob([html], { type: 'text/html;charset=utf-8' }));
 }

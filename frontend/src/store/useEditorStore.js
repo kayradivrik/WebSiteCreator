@@ -1,58 +1,130 @@
 import { create } from 'zustand';
+import { normalizePageSettings } from '../lib/pageSettingsDefaults.js';
 
-// Profesyonel bir açılış şablonu (Hero Section)
+// Ürün sayfası benzeri açılış: nav + hero + net CTA (flex Container; Grid yalnızca ızgara için)
 const initialCanvas = {
   id: 'root',
   type: 'Section',
-  props: { className: 'w-full min-h-screen bg-white dark:bg-gray-950 font-sans p-8' },
+  props: {
+    className:
+      'w-full min-h-screen bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100 font-sans',
+  },
   children: [
     {
       id: 'navbar-1',
       type: 'Container',
-      props: { className: 'max-w-7xl mx-auto px-6 py-4 flex items-center justify-between border-b dark:border-gray-800' },
+      props: {
+        className:
+          'max-w-6xl mx-auto px-5 sm:px-6 py-4 flex flex-wrap items-center justify-between gap-4 border-b border-slate-200/80 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-sm',
+      },
       children: [
         {
           id: 'logo-text',
           type: 'Heading',
-          props: { text: 'Startup.io', className: 'text-2xl font-black text-gray-900 dark:text-white tracking-tight', level: 'h1' }
+          props: {
+            text: 'Markanız',
+            className: 'text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white',
+            level: 'h2',
+          },
+        },
+        {
+          id: 'nav-links',
+          type: 'Container',
+          props: {
+            className: 'hidden sm:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400',
+          },
+          children: [
+            {
+              id: 'nav-l1',
+              type: 'Link',
+              props: { text: 'Özellikler', href: '#ozellikler', className: 'no-underline hover:text-slate-900 dark:hover:text-white' },
+            },
+            {
+              id: 'nav-l2',
+              type: 'Link',
+              props: { text: 'Fiyatlandırma', href: '#fiyat', className: 'no-underline hover:text-slate-900 dark:hover:text-white' },
+            },
+          ],
         },
         {
           id: 'nav-btn',
           type: 'Button',
-          props: { text: 'Get Started', className: 'px-5 py-2.5 bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-sm' }
-        }
-      ]
+          props: {
+            text: 'Panele git',
+            href: '#',
+            className:
+              'inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 transition-colors whitespace-nowrap',
+          },
+        },
+      ],
     },
     {
       id: 'hero-section',
       type: 'Container',
-      props: { className: 'max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8' },
+      props: {
+        className:
+          'max-w-6xl mx-auto px-5 sm:px-6 py-16 md:py-24 flex flex-col items-center text-center gap-6 md:gap-8',
+      },
       children: [
+        {
+          id: 'hero-badge',
+          type: 'Text',
+          props: {
+            text: 'Yeni · Kurumsal ekip planları',
+            className:
+              'inline-block rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400',
+          },
+        },
         {
           id: 'hero-title',
           type: 'Heading',
-          props: { text: 'Build faster, scale smarter.', className: 'text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-7xl', level: 'h1' }
+          props: {
+            text: 'Web sitenizi dakikalar içinde yayına alın',
+            className:
+              'max-w-3xl text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl md:text-6xl leading-[1.1]',
+            level: 'h1',
+          },
         },
         {
           id: 'hero-subtitle',
           type: 'Text',
-          props: { text: 'The ultimate tool for creators to build exceptional web experiences without writing a single line of code.', className: 'max-w-2xl text-xl text-gray-500 dark:text-gray-400 leading-relaxed' }
+          props: {
+            text: 'Görsel düzenleyici, hazır bloklar ve dışa aktarma ile ekip arkadaşlarınıza sunulabilir sayfalar üretin — kod yazmadan.',
+            className: 'max-w-2xl text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed',
+          },
         },
         {
           id: 'hero-actions',
-          type: 'Grid',
-          props: { className: 'flex gap-4 mt-4' }, 
+          type: 'Container',
+          props: {
+            className: 'mt-2 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center',
+          },
           children: [
             {
               id: 'primary-btn',
               type: 'Button',
-              props: { text: 'Start for free', className: 'px-8 py-3.5 bg-blue-600 text-white text-base font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md' }
-            }
-          ]
-        }
-      ]
-    }
-  ]
+              props: {
+                text: 'Ücretsiz başlayın',
+                href: '#',
+                className:
+                  'inline-flex items-center justify-center rounded-xl bg-blue-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/25 hover:bg-blue-700 transition-colors whitespace-nowrap',
+              },
+            },
+            {
+              id: 'secondary-btn',
+              type: 'Button',
+              props: {
+                text: 'Demo inceleyin',
+                href: '#',
+                className:
+                  'inline-flex items-center justify-center rounded-xl border-2 border-slate-300 bg-white px-8 py-3.5 text-base font-semibold text-slate-800 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800 transition-colors whitespace-nowrap',
+              },
+            },
+          ],
+        },
+      ],
+    },
+  ],
 };
 
 const cloneInitialCanvas = () => JSON.parse(JSON.stringify(initialCanvas));
@@ -71,6 +143,27 @@ const deepCloneNode = (node) => {
   };
 };
 
+/** Tam sayfa şablonu: kök id root kalır, alt ağaçta yeni id’ler */
+function remapTreeKeepRoot(node, isRoot = true) {
+  return {
+    ...node,
+    id: isRoot ? 'root' : generateId(),
+    children: node.children?.map((c) => remapTreeKeepRoot(c, false)),
+  };
+}
+
+const HISTORY_LIMIT = 80;
+
+/** Canvas değişiminden hemen önce mevcut ağacı past'e yazar (geri al için). */
+function pushPastAndMutate(state, partial) {
+  const snap = JSON.parse(JSON.stringify(state.canvasState));
+  return {
+    ...partial,
+    historyPast: [...state.historyPast, snap].slice(-HISTORY_LIMIT),
+    historyFuture: [],
+  };
+}
+
 export const useEditorStore = create((set, get) => ({
   canvasState: cloneInitialCanvas(),
   selectedElementId: null,
@@ -79,9 +172,17 @@ export const useEditorStore = create((set, get) => ({
   /** URL / SEO slug (kayıtta sunucuya gider) */
   pageSlug: '',
   /** Sunucudan gelen sayfa ayarları (dışa aktarma vb.) */
-  pageSettings: { favicon: '', customCSS: '' },
+  pageSettings: normalizePageSettings({}),
   /** Canvas yakınlaştırma % (50–150) */
   canvasZoom: 100,
+  /** Geri al / yinele (yalnızca canvasState) */
+  historyPast: [],
+  historyFuture: [],
+  /** Önizleme genişliği — mobil / tablet / masaüstü (Tailwind breakpoint’leriyle uyumlu) */
+  canvasViewport: 'desktop',
+  /** Yerleşim ızgarası ve merkez kılavuzları (yalnızca editör görünümü) */
+  showCanvasGrid: false,
+  showCanvasGuides: false,
 
   setSelectedElement: (id) => set({ selectedElementId: id }),
   setPageName: (pageName) => set({ pageName }),
@@ -93,6 +194,48 @@ export const useEditorStore = create((set, get) => ({
       return { canvasZoom: Math.min(150, Math.max(50, Math.round(n))) };
     }),
 
+  setCanvasViewport: (canvasViewport) =>
+    set(() =>
+      ['mobile', 'tablet', 'desktop'].includes(canvasViewport) ? { canvasViewport } : {}
+    ),
+
+  toggleShowCanvasGrid: () => set((s) => ({ showCanvasGrid: !s.showCanvasGrid })),
+  toggleShowCanvasGuides: () => set((s) => ({ showCanvasGuides: !s.showCanvasGuides })),
+
+  undo: () =>
+    set((state) => {
+      if (state.historyPast.length === 0) return {};
+      const prev = state.historyPast[state.historyPast.length - 1];
+      const current = JSON.parse(JSON.stringify(state.canvasState));
+      return {
+        canvasState: JSON.parse(JSON.stringify(prev)),
+        historyPast: state.historyPast.slice(0, -1),
+        historyFuture: [current, ...state.historyFuture].slice(0, HISTORY_LIMIT),
+      };
+    }),
+
+  redo: () =>
+    set((state) => {
+      if (state.historyFuture.length === 0) return {};
+      const next = state.historyFuture[0];
+      const current = JSON.parse(JSON.stringify(state.canvasState));
+      return {
+        canvasState: JSON.parse(JSON.stringify(next)),
+        historyPast: [...state.historyPast, current].slice(-HISTORY_LIMIT),
+        historyFuture: state.historyFuture.slice(1),
+      };
+    }),
+
+  /** Sayfa ayarlarını kısmi güncelle (ör. kod editöründen customCSS) */
+  updatePageSettings: (partial) =>
+    set((state) => {
+      const merged = { ...state.pageSettings, ...partial };
+      if (partial?.theme && typeof partial.theme === 'object') {
+        merged.theme = { ...state.pageSettings.theme, ...partial.theme };
+      }
+      return { pageSettings: normalizePageSettings(merged) };
+    }),
+
   loadPage: (doc) =>
     set({
       canvasState: doc.canvasState,
@@ -100,10 +243,9 @@ export const useEditorStore = create((set, get) => ({
       pageName: doc.name || 'Yeni sayfa',
       pageSlug: doc.slug != null && doc.slug !== '' ? String(doc.slug) : '',
       selectedElementId: null,
-      pageSettings: {
-        favicon: doc.settings?.favicon || '',
-        customCSS: doc.settings?.customCSS || '',
-      },
+      pageSettings: normalizePageSettings(doc.settings),
+      historyPast: [],
+      historyFuture: [],
     }),
 
   resetEditor: () =>
@@ -113,8 +255,10 @@ export const useEditorStore = create((set, get) => ({
       currentPageId: null,
       pageName: 'Yeni sayfa',
       pageSlug: '',
-      pageSettings: { favicon: '', customCSS: '' },
+      pageSettings: normalizePageSettings({}),
       canvasZoom: 100,
+      historyPast: [],
+      historyFuture: [],
     }),
 
   /** İçe aktarılan JSON ile canvası değiştirir */
@@ -122,60 +266,100 @@ export const useEditorStore = create((set, get) => ({
     if (!tree || typeof tree !== 'object') throw new Error('Geçersiz dosya');
     if (tree.id !== 'root') throw new Error('Kök öğe id "root" olmalı');
     if (!tree.type) throw new Error('Kök type eksik');
-    set({ canvasState: tree, selectedElementId: null });
+    set({
+      canvasState: tree,
+      selectedElementId: null,
+      historyPast: [],
+      historyFuture: [],
+    });
   },
 
-  updateElementProps: (id, newProps) => set((state) => {
-    const updateRecursive = (node) => {
-      if (node.id === id) {
-        return { ...node, props: { ...node.props, ...newProps } };
-      }
-      if (node.children) {
-        return { ...node, children: node.children.map(updateRecursive) };
-      }
-      return node;
-    };
-    return { canvasState: updateRecursive(state.canvasState) };
-  }),
+  /** Hazır website şablonu — id’ler yenilenir, kök seçilir */
+  applyWebsiteTemplate: (tree) => {
+    if (!tree || typeof tree !== 'object') throw new Error('Geçersiz şablon');
+    if (tree.id !== 'root') throw new Error('Şablon kök id "root" olmalı');
+    if (!tree.type) throw new Error('Kök type eksik');
+    const copy = JSON.parse(JSON.stringify(tree));
+    set({
+      canvasState: remapTreeKeepRoot(copy, true),
+      selectedElementId: 'root',
+      historyPast: [],
+      historyFuture: [],
+    });
+  },
+
+  updateElementProps: (id, newProps) =>
+    set((state) => {
+      const updateRecursive = (node) => {
+        if (node.id === id) {
+          return { ...node, props: { ...node.props, ...newProps } };
+        }
+        if (node.children) {
+          return { ...node, children: node.children.map(updateRecursive) };
+        }
+        return node;
+      };
+      const nextTree = updateRecursive(state.canvasState);
+      return pushPastAndMutate(state, { canvasState: nextTree });
+    }),
 
   // Tailwind Class Manipülatörü
-  updateElementClass: (id, classPrefix, newClassValue) => set((state) => {
-    const updateRecursive = (node) => {
-      if (node.id === id) {
-        let currentClasses = node.props.className || '';
-        // İlgili prefix ile başlayan (Örn: "bg-", "p-") bir class varsa onu kaldır. Regex kullanarak siliyoruz.
-        // Uyarı: Basit bir regex yaklaışımı. 'bg-' yakalamak için boşluk ve string başı dikkate alınır.
-        const regex = new RegExp(`(^|\\s)${classPrefix}[a-zA-Z0-9/-]+(\\s|$)`, 'g');
-        currentClasses = currentClasses.replace(regex, ' ').trim();
-        
-        // Yeni classı ekle
-        if(newClassValue) {
-           currentClasses = `${currentClasses} ${newClassValue}`.trim();
-        }
+  updateElementClass: (id, classPrefix, newClassValue) =>
+    set((state) => {
+      const updateRecursive = (node) => {
+        if (node.id === id) {
+          let currentClasses = node.props.className || '';
+          // İlgili prefix ile başlayan (Örn: "bg-", "p-") bir class varsa onu kaldır. Regex kullanarak siliyoruz.
+          // Uyarı: Basit bir regex yaklaışımı. 'bg-' yakalamak için boşluk ve string başı dikkate alınır.
+          const regex = new RegExp(`(^|\\s)${classPrefix}[a-zA-Z0-9/-]+(\\s|$)`, 'g');
+          currentClasses = currentClasses.replace(regex, ' ').trim();
 
-        return { ...node, props: { ...node.props, className: currentClasses } };
-      }
-      if (node.children) {
-        return { ...node, children: node.children.map(updateRecursive) };
-      }
-      return node;
-    };
-    return { canvasState: updateRecursive(state.canvasState) };
-  }),
+          if (newClassValue) {
+            currentClasses = `${currentClasses} ${newClassValue}`.trim();
+          }
+
+          return { ...node, props: { ...node.props, className: currentClasses } };
+        }
+        if (node.children) {
+          return { ...node, children: node.children.map(updateRecursive) };
+        }
+        return node;
+      };
+      const nextTree = updateRecursive(state.canvasState);
+      return pushPastAndMutate(state, { canvasState: nextTree });
+    }),
 
   addElement: (parentId, componentType) => set((state) => {
     const newElement = {
       id: generateId(),
       type: componentType,
       props: { className: 'p-4 min-h-[50px] border border-dashed border-gray-300 dark:border-gray-700' },
-      children: []
+      children: [],
     };
-    if(componentType === 'Text') newElement.props.text = 'New Text';
-    if(componentType === 'Heading') { newElement.props.text = 'Heading'; newElement.props.level = 'h2'; }
+    if (componentType === 'Grid') {
+      newElement.props.className =
+        'grid min-h-[50px] grid-cols-1 gap-4 p-4 border border-dashed border-gray-300 dark:border-gray-700 sm:grid-cols-2';
+    }
+    if (componentType === 'Section') {
+      newElement.props.className =
+        'w-full py-10 px-4 min-h-[120px] border border-dashed border-gray-300 dark:border-gray-700';
+    }
+    if (componentType === 'Container') {
+      newElement.props.className =
+        'max-w-5xl mx-auto w-full p-6 min-h-[80px] border border-dashed border-gray-300 dark:border-gray-700 rounded-xl';
+    }
+    if (componentType === 'Card') {
+      newElement.props.className =
+        'rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900 min-h-[80px]';
+    }
+    if(componentType === 'Text') newElement.props.text = 'Metninizi buraya yazın.';
+    if(componentType === 'Heading') { newElement.props.text = 'Başlık'; newElement.props.level = 'h2'; }
     if(componentType === 'Button') {
-      newElement.props.text = 'Click Me';
-      newElement.props.href = '';
+      newElement.props.text = 'İletişime geç';
+      newElement.props.href = '#';
       newElement.props.targetBlank = false;
+      newElement.props.className =
+        'inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 transition-colors whitespace-nowrap';
     }
     if (componentType === 'Link') {
       newElement.props.text = 'Daha fazlası';
@@ -194,7 +378,8 @@ export const useEditorStore = create((set, get) => ({
       }
       return node;
     };
-    return { canvasState: insertRecursive(state.canvasState) };
+    const nextTree = insertRecursive(state.canvasState);
+    return pushPastAndMutate(state, { canvasState: nextTree });
   }),
 
   /** Hazır şablon ağacı ekler (tüm id’ler deepClone ile yenilenir); kök seçilir */
@@ -212,26 +397,29 @@ export const useEditorStore = create((set, get) => ({
         }
         return node;
       };
-      return {
-        canvasState: insertRecursive(state.canvasState),
+      const nextTree = insertRecursive(state.canvasState);
+      return pushPastAndMutate(state, {
+        canvasState: nextTree,
         selectedElementId: cloned.id,
-      };
+      });
     }),
 
-  removeElement: (id) => set((state) => {
-    if (id === 'root') return state; // Root silinemez
-    const removeRecursive = (node) => {
-      if (node.children) {
-        const filteredChildren = node.children.filter(child => child.id !== id);
-        return { ...node, children: filteredChildren.map(removeRecursive) };
-      }
-      return node;
-    };
-    return {
-      canvasState: removeRecursive(state.canvasState),
-      selectedElementId: state.selectedElementId === id ? null : state.selectedElementId,
-    };
-  }),
+  removeElement: (id) =>
+    set((state) => {
+      if (id === 'root') return state; // Root silinemez
+      const removeRecursive = (node) => {
+        if (node.children) {
+          const filteredChildren = node.children.filter((child) => child.id !== id);
+          return { ...node, children: filteredChildren.map(removeRecursive) };
+        }
+        return node;
+      };
+      const nextTree = removeRecursive(state.canvasState);
+      return pushPastAndMutate(state, {
+        canvasState: nextTree,
+        selectedElementId: state.selectedElementId === id ? null : state.selectedElementId,
+      });
+    }),
 
   /** Text/Image içine blok eklenmesin; geçerli ebeveyn id'si */
   findDropTargetParentId: (selectedId) => {
@@ -278,10 +466,10 @@ export const useEditorStore = create((set, get) => ({
     };
 
     const newState = findAndDuplicateRecursive(state.canvasState);
-    return { 
-      canvasState: newState, 
-      selectedElementId: clonedNodeToInsert ? clonedNodeToInsert.id : state.selectedElementId 
-    };
+    return pushPastAndMutate(state, {
+      canvasState: newState,
+      selectedElementId: clonedNodeToInsert ? clonedNodeToInsert.id : state.selectedElementId,
+    });
   }),
 
   /**
@@ -371,7 +559,7 @@ export const useEditorStore = create((set, get) => ({
 
     parent.children = parent.children || [];
     parent.children.splice(insertIndex, 0, sourceNode);
-    return { canvasState: newStateTree };
+    return pushPastAndMutate(state, { canvasState: newStateTree });
   }),
 
   // Kapsayıcının içine (listenin sonuna) taşı — canvas üzerinde kutu üzerine bırakma
@@ -422,19 +610,22 @@ export const useEditorStore = create((set, get) => ({
   },
   
   // Drag Drop reorder
-  reorderChildren: (parentId, oldIndex, newIndex) => set((state) => {
+  reorderChildren: (parentId, oldIndex, newIndex) =>
+    set((state) => {
+      if (oldIndex === newIndex) return {};
       const reorderRecursive = (node) => {
-          if(node.id === parentId && node.children) {
-              const newChildren = [...node.children];
-              const [movedItem] = newChildren.splice(oldIndex, 1);
-              newChildren.splice(newIndex, 0, movedItem);
-              return { ...node, children: newChildren };
-          }
-           if (node.children) {
-               return { ...node, children: node.children.map(reorderRecursive) };
-           }
-           return node;
-      }
-      return { canvasState: reorderRecursive(state.canvasState) };
-  })
+        if (node.id === parentId && node.children) {
+          const newChildren = [...node.children];
+          const [movedItem] = newChildren.splice(oldIndex, 1);
+          newChildren.splice(newIndex, 0, movedItem);
+          return { ...node, children: newChildren };
+        }
+        if (node.children) {
+          return { ...node, children: node.children.map(reorderRecursive) };
+        }
+        return node;
+      };
+      const nextTree = reorderRecursive(state.canvasState);
+      return pushPastAndMutate(state, { canvasState: nextTree });
+    }),
 }));

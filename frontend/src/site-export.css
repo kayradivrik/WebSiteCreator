@@ -1,0 +1,9 @@
+@import './lib/wbTheme.css';
+
+/**
+ * Zip / offline dışa aktarım için ayrı Tailwind çıktısı.
+ * Build: npm run build:site-css
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 const fs = require('fs');
 const path = require('path');
 const { randomUUID } = require('crypto');
@@ -11,6 +12,28 @@ const PAGES_FILE = path.join(__dirname, 'data', 'pages.json');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const isProd = process.env.NODE_ENV === 'production';
+
+/** Arkada nginx / load balancer varsa istemci IP ve rate limit için (0 = kapalı) */
+if (Number(process.env.TRUST_PROXY_HOPS || 0) > 0) {
+  app.set('trust proxy', Number(process.env.TRUST_PROXY_HOPS));
+}
+
+/** Virgülle ayrılmış tam kökenler (örn. https://app.example.com,http://localhost:5173) */
+function parseCorsOrigins() {
+  const raw = (process.env.CORS_ORIGINS || '').trim();
+  if (!raw) return [];
+  return raw.split(',').map((s) => s.trim()).filter(Boolean);
+}
+
+const corsOrigins = parseCorsOrigins();
+if (isProd && corsOrigins.length === 0) {
+  console.warn(
+    '[CORS] NODE_ENV=production iken CORS_ORIGINS boş — tüm kökenlere yansıtma açık. Üretimde CORS_ORIGINS ayarlayın.'
+  );
+}
+
+const jsonBodyLimit = (process.env.JSON_BODY_LIMIT || '').trim() || (isProd ? '12mb' : '50mb');
 
 /** Mongo modunda DB hazır mı (bağlantı düşerse false olabilir) */
 function mongoConnected() {
@@ -118,14 +141,29 @@ async function initDatabase() {
   await repairPageSlugIndex();
 }
 
+const corsMethods = ['GET', 'HEAD', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'];
+const corsAllowedHeaders = ['Content-Type', 'Authorization', 'X-Api-Key'];
+
 app.use(
-  cors({
-    origin: true,
-    methods: ['GET', 'HEAD', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  })
+  cors(
+    corsOrigins.length > 0
+      ? {
+          origin(origin, callback) {
+            if (!origin) return callback(null, true);
+            if (corsOrigins.includes(origin)) return callback(null, true);
+            return callback(null, false);
+          },
+          methods: corsMethods,
+          allowedHeaders: corsAllowedHeaders,
+        }
+      : {
+          origin: true,
+          methods: corsMethods,
+          allowedHeaders: corsAllowedHeaders,
+        }
+  )
 );
-app.use(express.json({ limit: '50mb' }));
+app.use(express.json({ limit: jsonBodyLimit }));
 
 const apiRootJson = (_req, res) => {
   res.status(200).json({
@@ -170,10 +208,39 @@ function mongoUnavailable(res) {
 
 /** Express 5 + /api/pages/:id bazen listeyle çakışabiliyor; tüm /api altı Router ile sabit sıra */
 const api = express.Router();
+
+api.use(
+  rateLimit({
+    windowMs: 60 * 1000,
+    max: Number(process.env.API_RATE_MAX || (isProd ? 240 : 3000)),
+    standardHeaders: true,
+    legacyHeaders: false,
+    skip: (req) => req.path === '/health',
+  })
+);
+
+/** API_KEY tanımlıysa POST/DELETE/PATCH/PUT mutasyonlarında zorunlu (GET açık — önizleme/liste). */
+function requireApiKeyForMutations(req, res, next) {
+  const expected = (process.env.API_KEY || '').trim();
+  if (!expected) return next();
+  const m = req.method.toUpperCase();
+  if (m === 'GET' || m === 'HEAD' || m === 'OPTIONS') return next();
+  const auth = String(req.headers.authorization || '');
+  const bearer = auth.startsWith('Bearer ') ? auth.slice(7).trim() : '';
+  const headerKey = String(req.headers['x-api-key'] || '').trim();
+  const token = bearer || headerKey;
+  if (token && token === expected) return next();
+  return res.status(401).json({
+    error: 'Yetkisiz',
+    hint: 'Authorization: Bearer <API_KEY> veya X-Api-Key üstbilgisi gerekli.',
+  });
+}
+
 api.use((_req, res, next) => {
   res.setHeader('X-Web-Builder-Api', '1');
   next();
 });
+api.use(requireApiKeyForMutations);
 
 api.get('/health', (_req, res) => {
   res.json({
@@ -181,6 +248,70 @@ api.get('/health', (_req, res) => {
     fileDb: USE_FILE_DB,
     mongo: USE_FILE_DB ? null : { connected: mongoConnected(), state: mongoose.connection.readyState },
   });
+});
+
+/** Netlify: zip dosyasını kullanıcı token’ı ile yükler (tarayıcı CORS yerine backend). */
+api.post('/deploy/netlify', async (req, res) => {
+  try {
+    const { siteId, token, zipBase64 } = req.body || {};
+    if (!siteId || !token || !zipBase64) {
+      return res.status(400).json({ error: 'siteId, token ve zipBase64 gerekli' });
+    }
+    const buf = Buffer.from(String(zipBase64), 'base64');
+    if (!buf.length) return res.status(400).json({ error: 'Geçersiz zip verisi' });
+    const r = await fetch(`https://api.netlify.com/api/v1/sites/${encodeURIComponent(String(siteId).trim())}/deploys`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${String(token).trim()}`,
+        'Content-Type': 'application/zip',
+      },
+      body: buf,
+    });
+    const data = await r.json().catch(() => ({}));
+    if (!r.ok) {
+      return res.status(r.status).json({
+        error: data.message || data.error || `Netlify HTTP ${r.status}`,
+      });
+    }
+    return res.json({ url: data.ssl_url || data.url, id: data.id });
+  } catch (e) {
+    return res.status(500).json({ error: e.message || String(e) });
+  }
+});
+
+/** Vercel: tek HTML (CDN’li) — API şekli hesaba göre değişebilir. */
+api.post('/deploy/vercel', async (req, res) => {
+  try {
+    const { token, teamId, projectName, html } = req.body || {};
+    if (!token || !html) return res.status(400).json({ error: 'token ve html gerekli' });
+    const name = String(projectName || 'webbuilder-site')
+      .replace(/[^a-z0-9-]/gi, '-')
+      .slice(0, 48)
+      .replace(/^-+|-+$/g, '') || 'webbuilder-site';
+    const qs = teamId && String(teamId).trim() ? `?teamId=${encodeURIComponent(String(teamId).trim())}` : '';
+    const payload = {
+      name,
+      version: 2,
+      files: [{ file: 'index.html', data: String(html) }],
+    };
+    const r = await fetch(`https://api.vercel.com/v13/deployments${qs}`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${String(token).trim()}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+    const data = await r.json().catch(() => ({}));
+    if (!r.ok) {
+      return res.status(r.status).json({
+        error: data.error?.message || data.message || JSON.stringify(data).slice(0, 400),
+      });
+    }
+    return res.json({ url: data.url });
+  } catch (e) {
+    return res.status(500).json({ error: e.message || String(e) });
+  }
 });
 
 // Yeni oluştur veya kaydet
@@ -456,6 +587,11 @@ async function start() {
     console.log(`Loaded: ${path.resolve(__dirname, 'server.js')}`);
     console.log(`Probe: GET http://127.0.0.1:${PORT}/api/health — yanıtta X-Web-Builder-Api: 1 olmalı`);
     if (USE_FILE_DB) console.log('Using file-based storage (data/pages.json)');
+    if ((process.env.API_KEY || '').trim()) {
+      console.log('[Auth] API_KEY tanımlı — POST/DELETE/PATCH/PUT için X-Api-Key veya Bearer gerekli (GET açık).');
+    }
+    if (corsOrigins.length) console.log(`[CORS] İzinli kökenler: ${corsOrigins.join(', ')}`);
+    console.log(`[Body] JSON limit: ${jsonBodyLimit}`);
   });
 }
 

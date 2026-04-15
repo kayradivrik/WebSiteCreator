@@ -1,0 +1,27 @@
+/* Tema paleti — Tailwind dışı, sayfa kökünde CSS değişkenleri ile kullanılır */
+.wb-theme-root {
+  --wb-primary: #2563eb;
+  --wb-secondary: #64748b;
+  --wb-accent: #0ea5e9;
+  --wb-surface: #f8fafc;
+  --wb-text: #0f172a;
+}
+
+.wb-bg-surface {
+  background-color: var(--wb-surface);
+}
+.wb-text-theme {
+  color: var(--wb-text);
+}
+.wb-bg-primary {
+  background-color: var(--wb-primary);
+}
+.wb-text-on-primary {
+  color: #ffffff;
+}
+.wb-border-primary {
+  border-color: var(--wb-primary);
+}
+.wb-ring-primary {
+  --tw-ring-color: var(--wb-primary);
+}

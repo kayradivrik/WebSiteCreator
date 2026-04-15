@@ -19,8 +19,9 @@ const makeComponents = (builderChrome) => ({
       {children}
     </div>
   ),
+  /** className ile flex veya grid seçilir; zorunlu `grid` koymayın (CTA şeridi vb. flex kırılırdı). */
   Grid: ({ children, className, ...props }) => (
-    <div className={cn(builderChrome && 'builder-element grid min-h-[50px]', className)} {...props}>
+    <div className={cn(builderChrome && 'builder-element min-h-[40px]', className)} {...props}>
       {children}
     </div>
   ),

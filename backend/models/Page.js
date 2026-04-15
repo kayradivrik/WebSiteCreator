@@ -7,6 +7,16 @@ const PageSchema = new mongoose.Schema({
   settings: {
     favicon: String,
     customCSS: String,
+    googleFont: String,
+    metaTitle: String,
+    metaDescription: String,
+    theme: {
+      primary: String,
+      secondary: String,
+      accent: String,
+      surface: String,
+      text: String,
+    },
   }
 }, { timestamps: true });
 

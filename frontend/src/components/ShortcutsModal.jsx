@@ -2,12 +2,20 @@ import React, { useEffect } from 'react';
 import { Keyboard, X } from 'lucide-react';
 
 const ROWS = [
+  ['Tam sayfa şablonu', 'Sol panel: Website şablonları (onaylı)'],
   ['Kaydet', 'Ctrl / ⌘ + S'],
+  ['Geri al / yinele', 'Ctrl / ⌘ + Z · Ctrl / ⌘ + Shift + Z · Ctrl + Y'],
   ['Kısayol listesi', '? (input dışında)'],
   ['Canvas yakınlaştır', 'Üst çubukta + / −'],
+  ['Tema / Google Font', 'Üst çubuk yıldız ikonu'],
+  ['Site zip (CDN’siz)', 'Üst çubuk klasör zip ikonu'],
+  ['Netlify / Vercel', 'Üst çubuk roket ikonu'],
+  ['Önizleme genişliği', 'Üst çubuk: telefon / tablet / masaüstü'],
+  ['Izgara ve merkez kılavuzu', 'Üst çubuk ızgara ve artı ikonları'],
   ['Panoya dön', 'Üstteki ev ikonu'],
   ['Önizleme', 'Önizle (önce kaydeder)'],
   ['JSON içe aktar', 'Üst çubuk yükle ikonu'],
+  ['Site HTML (konsol)', 'Üst çubuk kod ikonu → HTML gövdesi / tam sayfa, kopyala'],
   ['Bileşen çoğalt', 'Özelliklerde kopya ikonu'],
   ['Seçimi kaldır', 'Canvas boş alanına tıklama'],
 ];

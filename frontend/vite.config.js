@@ -1,6 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import http from 'node:http'
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+
+const pkg = JSON.parse(
+  readFileSync(fileURLToPath(new URL('./package.json', import.meta.url)), 'utf8')
+)
 
 function createApiProxyMiddleware(port) {
   return (req, res, next) => {
@@ -60,6 +66,9 @@ const proxyTarget = `http://127.0.0.1:${apiPort}`
 
 // https://vite.dev/config/
 export default defineConfig({
+  define: {
+    __APP_VERSION__: JSON.stringify(pkg.version || '1.0.0'),
+  },
   plugins: [apiProxyPlugin(), react()],
   // vite preview için de aynı hedef (middleware bazen yetmez; çift güvence)
   preview: {

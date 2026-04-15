@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Download, FileJson } from 'lucide-react';
+import { Download, FileJson, FolderArchive } from 'lucide-react';
 import { Renderer } from '../components/Editor/Renderer';
-import { apiUrl } from '../lib/api';
+import { apiFetch } from '../lib/api';
 import { downloadCanvasHtml, downloadCanvasJson } from '../lib/exportStaticHtml';
+import { downloadSiteZip } from '../lib/exportSiteZip.js';
 import { ThemeToggle } from '../components/ThemeToggle.jsx';
+import { normalizePageSettings, themeToCssVarsStyle } from '../lib/pageSettingsDefaults.js';
+import { useGoogleFont } from '../hooks/useGoogleFont.js';
 
 export default function PublicViewPage() {
   const { pageId } = useParams();
   const [page, setPage] = useState(null);
   const [error, setError] = useState(null);
+  const [zipMsg, setZipMsg] = useState(null);
+
+  const settings = normalizePageSettings(page?.settings);
+  useGoogleFont(settings.googleFont);
 
   useEffect(() => {
     let cancelled = false;
-    fetch(apiUrl(`/pages/${pageId}`))
+    apiFetch(`/pages/${pageId}`)
       .then((r) => {
         if (!r.ok) throw new Error('notfound');
         return r.json();
@@ -22,7 +29,9 @@ export default function PublicViewPage() {
         if (cancelled) return;
         if (!data.canvasState) throw new Error('invalid');
         setPage(data);
-        document.title = data.name ? `${data.name} · Önizleme` : 'Önizleme';
+        const s = normalizePageSettings(data.settings);
+        const tab = (s.metaTitle || '').trim() || data.name || 'Sayfa';
+        document.title = `${tab} · Önizleme`;
       })
       .catch(() => {
         if (!cancelled) setError(true);
@@ -51,8 +60,9 @@ export default function PublicViewPage() {
 
   if (!page) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-black text-sm text-gray-500">
-        Yükleniyor…
+      <div className="flex min-h-screen flex-col items-center justify-center gap-3 bg-gray-50 dark:bg-black">
+        <div className="h-9 w-9 animate-pulse rounded-full bg-gray-300 dark:bg-gray-800" />
+        <p className="text-sm text-gray-500 dark:text-gray-400">Önizleme yükleniyor…</p>
       </div>
     );
   }
@@ -70,8 +80,7 @@ export default function PublicViewPage() {
             onClick={() =>
               downloadCanvasHtml(page.canvasState, {
                 title: page.name || 'sayfa',
-                customCSS: page.settings?.customCSS,
-                favicon: page.settings?.favicon,
+                ...settings,
               })
             }
             title="Tek HTML dosyası indir"
@@ -79,6 +88,27 @@ export default function PublicViewPage() {
           >
             <Download className="w-3.5 h-3.5" />
             HTML
+          </button>
+          <button
+            type="button"
+            onClick={async () => {
+              setZipMsg(null);
+              try {
+                await downloadSiteZip(page.canvasState, {
+                  title: page.name || 'sayfa',
+                  ...settings,
+                });
+                setZipMsg('Zip indirildi');
+                window.setTimeout(() => setZipMsg(null), 2000);
+              } catch (e) {
+                setZipMsg(e?.message || 'Zip hatası');
+              }
+            }}
+            title="Statik site zip"
+            className="inline-flex items-center gap-1 rounded-md border border-gray-200 dark:border-gray-700 px-2 py-1 hover:bg-gray-50 dark:hover:bg-gray-800"
+          >
+            <FolderArchive className="w-3.5 h-3.5" />
+            Zip
           </button>
           <button
             type="button"
@@ -100,8 +130,16 @@ export default function PublicViewPage() {
           </Link>
         </div>
       </div>
+      {zipMsg && (
+        <div className="bg-amber-50 px-4 py-1 text-center text-xs text-amber-900 dark:bg-amber-950/40 dark:text-amber-100">
+          {zipMsg}
+        </div>
+      )}
       <div className="p-6 md:p-10">
-        <div className="max-w-5xl mx-auto bg-white min-h-[70vh] shadow-sm rounded-xl border border-gray-200 overflow-hidden dark:bg-gray-950 dark:border-gray-800">
+        <div
+          className="wb-theme-root max-w-5xl mx-auto bg-white min-h-[70vh] shadow-sm rounded-xl border border-gray-200 overflow-hidden dark:bg-gray-950 dark:border-gray-800"
+          style={themeToCssVarsStyle(settings.theme)}
+        >
           <Renderer node={page.canvasState} mode="preview" />
         </div>
       </div>

@@ -54,6 +54,22 @@ function normalizeApiOrigin() {
 /** @deprecated */
 export const API_BASE = normalizeApiOrigin();
 
+const API_KEY = (import.meta.env.VITE_API_KEY ?? '').trim();
+
+/**
+ * API isteği — `VITE_API_KEY` tanımlıysa `X-Api-Key` üstbilgisi eklenir (mutasyonlar için backend API_KEY ile eşleşmeli).
+ * @param {string} path apiUrl ile aynı (örn. `/pages`, `/pages/abc`)
+ * @param {RequestInit} [init]
+ */
+export function apiFetch(path, init = {}) {
+  const url = apiUrl(path);
+  const headers = new Headers(init.headers ?? undefined);
+  if (API_KEY && !headers.has('X-Api-Key') && !headers.has('Authorization')) {
+    headers.set('X-Api-Key', API_KEY);
+  }
+  return fetch(url, { ...init, headers });
+}
+
 /**
  * Tam mutlak URL (örn. http://127.0.0.1:5000/api/pages).
  * Geliştirmede göreli /api kullanılmaz — tarayıcı her zaman doğrudan backend’e gider.
