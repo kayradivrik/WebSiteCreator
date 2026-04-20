@@ -1,5 +1,7 @@
 # WebBuilder
 
+![WebBuilder Logo](./frontend/public/logo-wordmark.svg)
+
 **Türkçe:** Görsel sayfa düzenleyici — Tailwind sınıfları, hazır bloklar, HTML/zip dışa aktarma, Netlify/Vercel dağıtımı.  
 **English:** Visual page builder with Tailwind-oriented markup, presets, static export, and optional deploy hooks.
 

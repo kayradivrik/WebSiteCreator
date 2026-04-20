@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
-  MonitorPlay,
   Plus,
   ExternalLink,
   Pencil,
@@ -141,9 +140,11 @@ export default function Dashboard() {
       <header className="border-b border-gray-200/80 bg-white/90 backdrop-blur dark:border-gray-800 dark:bg-gray-900/90">
         <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
           <Link to="/" className="flex items-center gap-2 text-lg font-bold tracking-tight">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white shadow-md shadow-blue-600/25">
-              <MonitorPlay className="h-5 w-5" aria-hidden />
-            </span>
+            <img
+              src="/logo-mark.svg"
+              alt="WebBuilder logo"
+              className="h-9 w-9 rounded-lg shadow-md shadow-blue-600/20"
+            />
             <span className="text-gray-900 dark:text-white">
               WebBuilder<span className="font-semibold text-blue-600">.ai</span>
             </span>

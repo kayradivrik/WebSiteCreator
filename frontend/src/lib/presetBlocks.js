@@ -84,6 +84,108 @@ export const PRESET_BLOCKS = [
     },
   },
   {
+    id: 'faq-3',
+    label: 'SSS (3 soru)',
+    hint: 'Sıkça sorulan sorular — başlık ve üç soru/cevap satırı',
+    root: {
+      id: '_preset',
+      type: 'Container',
+      props: {
+        className:
+          'w-full max-w-2xl mx-auto rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900 overflow-hidden',
+      },
+      children: [
+        {
+          id: '_faq-h',
+          type: 'Heading',
+          props: {
+            text: 'Sıkça sorulan sorular',
+            level: 'h2',
+            className: 'px-6 pt-6 pb-2 text-xl font-bold text-gray-900 dark:text-white',
+          },
+        },
+        {
+          id: '_faq1',
+          type: 'Container',
+          props: {
+            className: 'px-6 py-4 border-t border-gray-100 dark:border-gray-800 flex flex-col gap-1',
+          },
+          children: [
+            {
+              id: '_faq1q',
+              type: 'Heading',
+              props: {
+                text: 'Kod bilmem gerekir mi?',
+                level: 'h3',
+                className: 'text-sm font-semibold text-gray-900 dark:text-white',
+              },
+            },
+            {
+              id: '_faq1a',
+              type: 'Text',
+              props: {
+                text: 'Hayır. Bileşenleri sürükleyip metin ve sınıfları düzenlemeniz yeterli.',
+                className: 'text-sm text-gray-600 dark:text-gray-400 leading-relaxed',
+              },
+            },
+          ],
+        },
+        {
+          id: '_faq2',
+          type: 'Container',
+          props: {
+            className: 'px-6 py-4 border-t border-gray-100 dark:border-gray-800 flex flex-col gap-1',
+          },
+          children: [
+            {
+              id: '_faq2q',
+              type: 'Heading',
+              props: {
+                text: 'Dışa aktarılan site nerede çalışır?',
+                level: 'h3',
+                className: 'text-sm font-semibold text-gray-900 dark:text-white',
+              },
+            },
+            {
+              id: '_faq2a',
+              type: 'Text',
+              props: {
+                text: 'HTML veya zip dosyası herhangi bir statik barındırmada; Netlify/Vercel ile de tek tıkla yayınlayabilirsiniz.',
+                className: 'text-sm text-gray-600 dark:text-gray-400 leading-relaxed',
+              },
+            },
+          ],
+        },
+        {
+          id: '_faq3',
+          type: 'Container',
+          props: {
+            className: 'px-6 py-4 border-t border-gray-100 dark:border-gray-800 flex flex-col gap-1 pb-6',
+          },
+          children: [
+            {
+              id: '_faq3q',
+              type: 'Heading',
+              props: {
+                text: 'Verilerim nerede saklanır?',
+                level: 'h3',
+                className: 'text-sm font-semibold text-gray-900 dark:text-white',
+              },
+            },
+            {
+              id: '_faq3a',
+              type: 'Text',
+              props: {
+                text: 'Kendi sunucunuzdaki API ve MongoDB veya dosya tabanlı depolama ile; kontrol sizde.',
+                className: 'text-sm text-gray-600 dark:text-gray-400 leading-relaxed',
+              },
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     id: 'features-3',
     label: '3 özellik kartı',
     hint: 'Yan yana üç kart',

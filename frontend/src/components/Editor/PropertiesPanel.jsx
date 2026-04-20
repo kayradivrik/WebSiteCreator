@@ -82,14 +82,16 @@ function PropertiesPanel() {
             <>
               <button 
                 onClick={() => duplicateElement(selectedElementId)}
-                title="Duplicate Element"
+                title="Çoğalt (Ctrl+D)"
+                type="button"
                 className="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded transition-colors"
                >
                 <Copy className="w-4 h-4"/>
               </button>
               <button 
                 onClick={() => removeElement(selectedElementId)}
-                 title="Delete Element"
+                title="Sil (Delete)"
+                type="button"
                 className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/30 rounded transition-colors"
                >
                 <Trash2 className="w-4 h-4"/>
@@ -105,13 +107,13 @@ function PropertiesPanel() {
           onClick={() => setActiveTab('content')}
           className={`flex-1 py-3 flex items-center justify-center gap-2 ${activeTab === 'content' ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50/50 dark:bg-blue-900/10' : 'text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-900'}`}
         >
-          <Type className="w-3.5 h-3.5" /> Content
+          <Type className="w-3.5 h-3.5" /> İçerik
         </button>
         <button 
           onClick={() => setActiveTab('style')}
           className={`flex-1 py-3 flex items-center justify-center gap-2 ${activeTab === 'style' ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50/50 dark:bg-blue-900/10' : 'text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-900'}`}
         >
-          <Palette className="w-3.5 h-3.5" /> Styling
+          <Palette className="w-3.5 h-3.5" /> Görünüm
         </button>
       </div>
 

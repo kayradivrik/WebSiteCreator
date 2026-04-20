@@ -16,8 +16,10 @@ const ROWS = [
   ['Önizleme', 'Önizle (önce kaydeder)'],
   ['JSON içe aktar', 'Üst çubuk yükle ikonu'],
   ['Site HTML (konsol)', 'Üst çubuk kod ikonu → HTML gövdesi / tam sayfa, kopyala'],
-  ['Bileşen çoğalt', 'Özelliklerde kopya ikonu'],
-  ['Seçimi kaldır', 'Canvas boş alanına tıklama'],
+  ['Seçili öğeyi çoğalt', 'Ctrl / ⌘ + D (input dışında)'],
+  ['Seçili öğeyi sil', 'Delete (kök hariç, input dışında)'],
+  ['Seçimi kaldır', 'Esc · veya canvas boş alanına tıklama'],
+  ['Bileşen çoğalt (panel)', 'Özelliklerde kopya ikonu'],
 ];
 
 export function ShortcutsModal({ open, onClose }) {

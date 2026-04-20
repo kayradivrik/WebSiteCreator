@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 88" role="img" aria-label="WebBuilder wordmark">
+  <defs>
+    <linearGradient id="wbm" x1="6" y1="6" x2="82" y2="82" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2563eb" />
+      <stop offset="1" stop-color="#7c3aed" />
+    </linearGradient>
+    <linearGradient id="wbt" x1="100" y1="10" x2="340" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f172a" />
+      <stop offset="1" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="76" height="76" rx="18" fill="url(#wbm)" />
+  <path d="M24 24h40v8L41 64h-11l23-32H24z" fill="#fff" />
+  <circle cx="63" cy="63" r="7" fill="#fff" opacity=".9" />
+  <text x="102" y="54" fill="url(#wbt)" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="40" font-weight="800" letter-spacing=".4">WebBuilder</text>
+  <text x="346" y="54" fill="#2563eb" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="40" font-weight="900">.ai</text>
+</svg>

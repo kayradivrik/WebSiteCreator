@@ -6,7 +6,6 @@ import { PropertiesPanel } from './PropertiesPanel.jsx';
 import {
   Save,
   Eye,
-  MonitorPlay,
   ExternalLink,
   Home,
   Download,
@@ -259,6 +258,35 @@ export const Editor = ({ onSaved }) => {
         tag === 'SELECT' ||
         e.target?.isContentEditable ||
         e.target?.closest?.('.cm-editor');
+
+      const modalOpen =
+        shortcutsOpen || codeDrawerOpen || themeModalOpen || deployModalOpen;
+
+      if (e.key === 'Escape' && !typing) {
+        if (modalOpen) return;
+        e.preventDefault();
+        useEditorStore.getState().setSelectedElement(null);
+        return;
+      }
+
+      if (!typing && !modalOpen) {
+        if (e.key === 'Delete') {
+          const sid = useEditorStore.getState().selectedElementId;
+          if (sid && sid !== 'root') {
+            e.preventDefault();
+            useEditorStore.getState().removeElement(sid);
+          }
+          return;
+        }
+        if ((e.ctrlKey || e.metaKey) && (e.key === 'd' || e.key === 'D')) {
+          e.preventDefault();
+          const sid = useEditorStore.getState().selectedElementId;
+          if (sid && sid !== 'root') {
+            useEditorStore.getState().duplicateElement(sid);
+          }
+        }
+      }
+
       if ((e.ctrlKey || e.metaKey) && !typing) {
         if (e.key === 'z' || e.key === 'Z') {
           e.preventDefault();
@@ -281,7 +309,15 @@ export const Editor = ({ onSaved }) => {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [persistSave, undo, redo]);
+  }, [
+    persistSave,
+    undo,
+    redo,
+    shortcutsOpen,
+    codeDrawerOpen,
+    themeModalOpen,
+    deployModalOpen,
+  ]);
 
   return (
     <div className="flex flex-col h-screen overflow-hidden text-foreground bg-background">
@@ -294,7 +330,11 @@ export const Editor = ({ onSaved }) => {
           <Home className="w-5 h-5" />
         </Link>
         <div className="flex items-center gap-2 font-bold text-lg tracking-tight shrink-0">
-          <MonitorPlay className="w-5 h-5 text-blue-600 hidden sm:block" />
+          <img
+            src="/logo-mark.svg"
+            alt="WebBuilder logo"
+            className="hidden h-5 w-5 sm:block rounded"
+          />
           <span className="hidden sm:inline">
             WebBuilder<span className="text-blue-500">.ai</span>
           </span>

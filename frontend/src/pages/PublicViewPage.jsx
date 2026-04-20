@@ -70,8 +70,11 @@ export default function PublicViewPage() {
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-zinc-950">
       <div className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur px-4 py-2 text-xs text-gray-600 dark:text-gray-300">
-        <span className="truncate font-medium text-gray-800 dark:text-gray-100">
-          {page.name || 'Önizleme'}
+        <span className="flex min-w-0 items-center gap-2">
+          <img src="/logo-mark.svg" alt="WebBuilder logo" className="h-5 w-5 shrink-0 rounded" />
+          <span className="truncate font-medium text-gray-800 dark:text-gray-100">
+            {page.name || 'Önizleme'}
+          </span>
         </span>
         <div className="flex items-center gap-2 shrink-0 flex-wrap justify-end">
           <ThemeToggle />
